@@ -1,4 +1,4 @@
-def sort(width: int, height: int, length: int, mass: int) -> str:
+def sort(width: float, height: float, length: float, mass: float) -> str:
     if min(length, width, height, mass) < 0:
         return "Error negative input"
 
@@ -19,15 +19,25 @@ def sort(width: int, height: int, length: int, mass: int) -> str:
 
 def tests():
     failed = False
-    if sort(1, 1, 1, 1) != "STANDARD": failed = True
-    if sort(100, 100, 100, 1) == "SPECIAL": failed = True
-    if sort(149, 10, 10, 20) == "SPECIAL": failed = True
-    if sort(1, 1, 151, 25) == "REJECTED": failed = True
-    if sort(150, 1, 1, 1) == "SPECIAL": failed = True
-    if sort(10, 10, 10, 20) == "SPECIAL": failed = True
-    if sort(10, 10, 10, 19) == "STANDARD": failed = True
-    if sort(10, 10, 10, 21) == "SPECIAL": failed = True
-    
+    if sort(1, 1, 1, 1) != "STANDARD":
+        failed = True
+    if sort(100, 100, 100, 1) != "SPECIAL":
+        failed = True
+    if sort(149, 10, 10, 20) != "SPECIAL":
+        failed = True
+    if sort(1, 1, 151, 25) != "REJECTED":
+        failed = True
+    if sort(150, 1, 1, 1) != "SPECIAL":
+        failed = True
+    if sort(10, 10, 10, 20) != "SPECIAL":
+        failed = True
+    if sort(10, 10, 10, 19) != "STANDARD":
+        failed = True
+    if sort(10, 10, 10, 21) != "SPECIAL":
+        failed = True
+    if sort(-1, 10, 10, 10) != "Error negative input":
+        failed = True
+
     if failed:
         return "failure"
     return "success"
@@ -35,4 +45,4 @@ def tests():
 
 
 if __name__ == "__main__":
-    tests()
+    print(tests())
